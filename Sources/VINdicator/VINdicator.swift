@@ -1,6 +1,7 @@
 public struct VINdicator {
-    public private(set) var text = "Hello, World!"
+    public init() {}
 
-    public init() {
+    public func validateVin(_ vin: String) -> Bool {
+       return Validator().validate(vin)
     }
 }
