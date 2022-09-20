@@ -12,12 +12,6 @@ final class ValidatorTests: XCTestCase {
 
     var sut: Validator!
 
-    let tooLong = "111111111111111111"
-    let tooShort = "1111111111111111"
-    let valid = "11111111111111111"
-    let preTrans = "WBA3A5G59DNP26082"
-    let postTrans = [6, 2, 1, 3, 1, 5, 7, 5, 9, 4, 5, 7, 2, 6, 0, 8, 2]
-
     override func setUpWithError() throws {
         try super.setUpWithError()
         self.sut = Validator()
@@ -28,19 +22,20 @@ final class ValidatorTests: XCTestCase {
         try super.tearDownWithError()
     }
     
-    func testTooLong() {
-        let result = sut.validate(tooLong)
-        XCTAssertFalse(result)
+    func testTooLong() throws {
+        XCTAssertThrowsError(try sut.validate(tooLong)) { error in
+            XCTAssertEqual(error as! VindicatorError, VindicatorError.vinTooLong)
+        }
     }
 
-    func testTooShort() {
-        let result = sut.validate(tooShort)
-        XCTAssertFalse(result)
+    func testTooShort() throws {
+        XCTAssertThrowsError(try sut.validate(tooShort)) { error in
+            XCTAssertEqual(error as! VindicatorError, VindicatorError.vinTooShort)
+        }
     }
 
-    func testValidVIN() {
-        let result = sut.validate(valid)
-        XCTAssertTrue(result)
+    func testValidVIN() throws {
+        XCTAssertNoThrow(try sut.validate(valid))
     }
 
     func testTransliteration() {
@@ -51,6 +46,12 @@ final class ValidatorTests: XCTestCase {
     func testCheckDigit() {
         let result = sut.calculateCheckDigit(preTrans)
         let checkdigit = preTrans[preTrans.index(preTrans.startIndex, offsetBy: 8)]
+        XCTAssertEqual(result, String(checkdigit))
+    }
+
+    func testXDigit() {
+        let result = sut.calculateCheckDigit(xCheckDigit)
+        let checkdigit = xCheckDigit[xCheckDigit.index(xCheckDigit.startIndex, offsetBy: 8)]
         XCTAssertEqual(result, String(checkdigit))
     }
 }

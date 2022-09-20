@@ -31,3 +31,4 @@ let transTable = ["A": "1",
 
 let weights = [8, 7, 6, 5, 4, 3, 2, 10, 0, 9, 8, 7, 6, 5, 4, 3, 2]
 
+let nhtsaHost = "https://vpic.nhtsa.dot.gov/api/vehicles/DecodeVin/"

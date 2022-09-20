@@ -7,13 +7,20 @@
 
 struct Validator {
 
-    func validate(_ vin: String) -> Bool {
-        if vin.count != 17 {
-            return false
+    func validate(_ vin: String) throws {
+        if vin.count < 17 {
+            throw VindicatorError.vinTooShort
         }
+
+        if vin.count > 17 {
+            throw VindicatorError.vinTooLong
+        }
+
         let checkDigit = calculateCheckDigit(vin)
         let sourceDigit = String(vin[vin.index(vin.startIndex, offsetBy: 8)])
-        return checkDigit == sourceDigit
+        if checkDigit != sourceDigit {
+            throw VindicatorError.invalidVin
+        }
     }
 
     func transliterate(_ vin: String) -> [Int] {
