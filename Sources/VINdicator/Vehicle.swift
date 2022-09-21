@@ -9,4 +9,5 @@ public struct Vehicle: Equatable {
     let make: String
     let model: String
     let year: String
+    let fuel: String
 }

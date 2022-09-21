@@ -32,7 +32,6 @@ final class VINdicatorTests: XCTestCase {
 
     func testLookup() async throws {
         let sut = VINdicator()
-        let result = try await sut.lookupVin("WBA3A5G59DNP26082")
-        print(result)
+        try await sut.lookupVin("WBA3A5G59DNP26082")
     }
 }

@@ -42,6 +42,7 @@ struct Lookup {
             var make = ""
             var model = ""
             var year = ""
+            var fuel = ""
 
             json.results.forEach { result in
                 switch result.variableID {
@@ -51,12 +52,14 @@ struct Lookup {
                     model = result.value ?? "None"
                 case 29:
                     year = result.value ?? "None"
+                case 24:
+                    fuel = result.value ?? "None"
                 default:
                     return
                 }
             }
 
-            return Vehicle(make: make, model: model, year: year)
+            return Vehicle(make: make, model: model, year: year, fuel: fuel)
         } catch {
             throw error
         }
