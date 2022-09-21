@@ -8,9 +8,9 @@
 import Foundation
 
 public enum VindicatorError: LocalizedError {
-    case vinTooShort
-    case vinTooLong
-    case invalidVin
-    case onlineLookupFailed
-    case invalidServerResponse
+   public case vinTooShort
+   public case vinTooLong
+   public case invalidVin
+   public case onlineLookupFailed
+   public case invalidServerResponse
 }
