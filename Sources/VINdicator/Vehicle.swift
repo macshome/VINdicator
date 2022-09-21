@@ -6,8 +6,8 @@
 //
 
 public struct Vehicle: Equatable {
-    let make: String
-    let model: String
-    let year: String
-    let fuel: String
+    public let make: String
+    public let model: String
+    public let year: String
+    public let fuel: String
 }
