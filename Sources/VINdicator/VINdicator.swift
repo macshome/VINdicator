@@ -20,8 +20,8 @@ public struct VINdicator {
     /// - Throws: A `VindicatorError` if there is a problem with the VIN format or the online lookup.
     public func lookupVin(_ vin: String) async throws -> Vehicle {
         do {
-            let client = Lookup()
             try validateVin(vin)
+            let client = Lookup()
             let vehicle = try await client.lookupOnline(vin)
             return vehicle
         } catch {
