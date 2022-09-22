@@ -25,7 +25,7 @@ struct Validator {
 
     func transliterate(_ vin: String) -> [Int] {
         var result = [Int]()
-        vin.forEach {
+        vin.uppercased().forEach {
             if let transed = transTable[String($0)]  {
                 result.append(Int(transed)!)
             } else {

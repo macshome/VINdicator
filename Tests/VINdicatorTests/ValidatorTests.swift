@@ -54,4 +54,8 @@ final class ValidatorTests: XCTestCase {
         let checkdigit = xCheckDigit[xCheckDigit.index(xCheckDigit.startIndex, offsetBy: 8)]
         XCTAssertEqual(result, String(checkdigit))
     }
+
+    func testLowerCaseVIN() throws {
+        try sut.validate(lowerCase)
+    }
 }

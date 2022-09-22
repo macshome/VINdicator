@@ -13,6 +13,7 @@ let tooShort = "1111111111111111"
 let valid = "11111111111111111"
 let preTrans = "WBA3A5G59DNP26082"
 let xCheckDigit = "1M8GDM9AXKP042788"
+let lowerCase = "wba3a5g59dnp26082"
 let postTrans = [6, 2, 1, 3, 1, 5, 7, 5, 9, 4, 5, 7, 2, 6, 0, 8, 2]
 
 let testVehicle = Vehicle(make: "BMW", model: "328i", year: "2013", fuel: "Gasoline")
