@@ -1,4 +1,6 @@
 public struct VINdicator {
+
+    /// Create a new instance of a `VINdicator` to use when validating or decoding a VIN.
     public init() {}
 
     /// Validates a VIN passed in as a `String`. This validation is performed on-device and does not require a network connection.
