@@ -17,7 +17,7 @@ final class VINdicatorTests: XCTestCase {
     func testBadLookup() async throws {
        let sut = VINdicator()
         do {
-            try await sut.lookupVin("11111111011111111")
+            try await _ = sut.lookupVin("11111111011111111")
         } catch {
             XCTAssertEqual(error as! VindicatorError, VindicatorError.invalidVin)
         }
@@ -32,6 +32,6 @@ final class VINdicatorTests: XCTestCase {
 
     func testLookup() async throws {
         let sut = VINdicator()
-        try await sut.lookupVin("WBA3A5G59DNP26082")
+        try await _ = sut.lookupVin("WBA3A5G59DNP26082")
     }
 }
